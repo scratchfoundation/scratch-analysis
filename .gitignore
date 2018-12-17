@@ -1,0 +1,11 @@
+## OSX
+.DS_Store
+
+## NPM
+/node_modules
+npm-*
+package-lock.json
+
+## Code Coverage
+.nyc_output/
+coverage/

@@ -1,0 +1,3 @@
+{
+    "extends": ["scratch", "scratch/node"]
+}

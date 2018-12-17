@@ -4,7 +4,6 @@
   "description": "Analysis tool for summarizing the structure, composition, and complexity of Scratch programs.",
   "main": "lib/index.js",
   "directories": {
-    "bin": "bin",
     "lib": "lib",
     "test": "test"
   },
@@ -18,8 +17,7 @@
   "author": "Scratch Foundation",
   "license": "BSD-3-Clause",
   "dependencies": {
-    "scratch-parser": "4.3.2",
-    "yargs": "12.0.5"
+    "scratch-parser": "4.3.2"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.1",

@@ -2,6 +2,7 @@
 #### Analysis tool for summarizing the structure, composition, and complexity of [Scratch](https://scratch.mit.edu) programs.
 
 [![Build Status](https://travis-ci.org/LLK/scratch-analysis.svg?branch=develop)](https://travis-ci.org/LLK/scratch-analysis)
+[![Greenkeeper badge](https://badges.greenkeeper.io/LLK/scratch-analysis.svg)](https://greenkeeper.io/)
 
 ## Getting Started
 ```bash

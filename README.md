@@ -1,6 +1,8 @@
 ## scratch-analysis
 #### Analysis tool for summarizing the structure, composition, and complexity of [Scratch](https://scratch.mit.edu) programs.
 
+[![Build Status](https://travis-ci.org/LLK/scratch-analysis.svg?branch=develop)](https://travis-ci.org/LLK/scratch-analysis)
+
 ## Getting Started
 ```bash
 npm install scratch-analysis

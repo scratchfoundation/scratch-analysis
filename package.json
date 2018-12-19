@@ -17,7 +17,7 @@
   "author": "Scratch Foundation",
   "license": "BSD-3-Clause",
   "dependencies": {
-    "scratch-parser": "4.3.2"
+    "scratch-parser": "4.3.3"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.1",

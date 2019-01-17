@@ -13,6 +13,10 @@ const complexBinary = fs.readFileSync(
     path.resolve(__dirname, '../fixtures/sb3/complex.sb3')
 );
 
+const extensionsBinary = fs.readFileSync(
+    path.resolve(__dirname, '../fixtures/sb3/extensions.sb3')
+);
+
 test('defalt (object)', t => {
     analysis(defaultObject, (err, result) => {
         t.true(typeof err === 'undefined' || err === null);
@@ -253,6 +257,22 @@ test('complex (binary)', t => {
         t.equal(result.extensions.count, 1);
         t.deepEqual(result.extensions.id, [
             'wedo2'
+        ]);
+
+        t.end();
+    });
+});
+
+test('extensions', t => {
+    analysis(extensionsBinary, (err, result) => {
+        t.true(typeof err === 'undefined' || err === null);
+        t.type(result, 'object');
+
+        t.type(result.extensions, 'object');
+        t.equal(result.extensions.count, 2);
+        t.deepEqual(result.extensions.id, [
+            'translate',
+            'text2speech'
         ]);
 
         t.end();

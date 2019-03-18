@@ -26,7 +26,8 @@ The `scratch-analysis` module will return an object containing high-level summar
 | `scripts`         | `count`                                                  |
 | `blocks`          | `count`, `unique`, `list`, `frequency`                   |
 | `sprites`         | `count`                                                  |
-| `variables`       | `count`                                                  |
+| `variables`       | `count`, `id`                                            |
+| `cloud`           | `count`, `id`                                            |
 | `lists`           | `count`                                                  |
 | `costumes`        | `count`, `list`, `hash`                                  |
 | `sounds`          | `count`, `list`, `hash`                                  |

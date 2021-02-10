@@ -75,6 +75,8 @@ test('defalt (object)', t => {
         t.equal(result.extensions.count, 0);
         t.deepEqual(result.extensions.id, []);
 
+        t.type(result.meta, 'object');
+        t.equal(result.meta.origin, 'test.scratch.mit.edu');
         t.end();
     });
 });
@@ -136,6 +138,9 @@ test('defalt (binary)', t => {
         t.type(result.extensions, 'object');
         t.equal(result.extensions.count, 0);
         t.deepEqual(result.extensions.id, []);
+
+        t.type(result.meta, 'object');
+        t.equal(result.meta.origin, '');
 
         t.end();
     });

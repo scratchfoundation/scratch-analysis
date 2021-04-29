@@ -1,0 +1,27 @@
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: weekly
+    time: "10:00"
+  open-pull-requests-limit: 99
+  versioning-strategy: increase-if-necessary
+  ignore:
+  - dependency-name: eslint
+    versions:
+    - 7.18.0
+    - 7.19.0
+    - 7.20.0
+    - 7.21.0
+    - 7.22.0
+    - 7.23.0
+    - 7.24.0
+  - dependency-name: tap
+    versions:
+    - 14.11.0
+    - 15.0.1
+    - 15.0.2
+  - dependency-name: eslint-config-scratch
+    versions:
+    - 6.0.0

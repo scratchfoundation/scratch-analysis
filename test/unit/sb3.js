@@ -140,7 +140,7 @@ test('defalt (binary)', t => {
         t.deepEqual(result.extensions.id, []);
 
         t.type(result.meta, 'object');
-        t.equal(result.meta.origin, '');
+        t.deepEqual({}, result.meta);
 
         t.end();
     });

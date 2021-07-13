@@ -69,6 +69,9 @@ test('defalt (object)', t => {
         t.equal(result.extensions.count, 0);
         t.deepEqual(result.extensions.id, []);
 
+        t.type(result.meta, 'object');
+        t.deepEqual(result.meta, {});
+
         t.end();
     });
 });

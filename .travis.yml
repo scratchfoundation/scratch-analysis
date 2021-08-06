@@ -13,7 +13,7 @@ jobs:
     script: echo deploying...
     deploy:
     - provider: script
-      script: npx semantic-release
+      script: npx semantic-release --branches develop
       on:
         branch: develop
 stages:

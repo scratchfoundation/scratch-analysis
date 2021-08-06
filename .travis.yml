@@ -1,9 +1,23 @@
-sudo: false
 language: node_js
 node_js:
-  - "8"
-  - "10"
-  - "node"
+  - 8
+  - 10
+  - node
 cache:
   directories:
   - node_modules
+script:
+  - commitlint-travis
+  - npm test
+jobs:
+  include:
+  - stage: release
+    node_js: 10
+    script: echo deploying...
+    deploy:
+    - provider: script
+      script: npx semantic-release
+stages:
+- test
+- name: release
+  if: branch = develop

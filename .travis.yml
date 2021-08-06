@@ -6,9 +6,6 @@ node_js:
 cache:
   directories:
   - node_modules
-script:
-  - commitlint-travis
-  - npm test
 jobs:
   include:
   - stage: release

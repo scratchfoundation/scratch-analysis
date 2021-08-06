@@ -14,7 +14,9 @@ jobs:
     deploy:
     - provider: script
       script: npx semantic-release
+      on:
+        branch: develop
 stages:
 - test
 - name: release
-  if: branch = develop
+  if: type != pull_request AND branch = develop

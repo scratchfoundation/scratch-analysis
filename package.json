@@ -1,6 +1,6 @@
 {
   "name": "scratch-analysis",
-  "version": "1.1.0",
+  "version": "2.2.0",
   "description": "Analysis tool for summarizing the structure, composition, and complexity of Scratch programs.",
   "main": "lib/index.js",
   "directories": {

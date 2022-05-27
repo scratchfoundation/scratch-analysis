@@ -1,3 +1,7 @@
 {
+    "parser": "@babel/eslint-parser",
+    "parserOptions": {
+        "requireConfigFile": false
+    },
     "extends": ["scratch", "scratch/node"]
 }

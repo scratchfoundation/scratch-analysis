@@ -1,6 +1,6 @@
 {
   "name": "scratch-analysis",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Analysis tool for summarizing the structure, composition, and complexity of Scratch programs.",
   "main": "lib/index.js",
   "directories": {
@@ -8,21 +8,19 @@
     "test": "test"
   },
   "scripts": {
-    "test": "npm run test:lint && npm run test:unit && npm run test:integration",
+    "test": "npm run test:lint && npm run test:unit",
     "test:lint": "eslint .",
-    "test:unit": "tap test/unit/*.js",
-    "test:integration": "tap test/integration/*.js",
-    "test:coverage": "tap test/{unit,integration}/*.js --coverage --coverage-report=lcov"
+    "test:unit": "tap --reporter nyan test/unit/*.js --statements=97 --branches=97"
   },
   "author": "Scratch Foundation",
   "license": "BSD-3-Clause",
   "dependencies": {
-    "scratch-parser": "4.3.2"
+    "scratch-parser": "5.0.0"
   },
   "devDependencies": {
-    "babel-eslint": "^10.0.1",
-    "eslint": "^5.10.0",
-    "eslint-config-scratch": "^5.0.0",
-    "tap": "^12.1.1"
+    "@babel/eslint-parser": "^7.5.4",
+    "eslint": "^8.16.0",
+    "eslint-config-scratch": "^7.0.0",
+    "tap": "^16.2.0"
   }
 }

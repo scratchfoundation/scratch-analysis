@@ -1,0 +1,30 @@
+version: '3.4'
+volumes:
+  npm_data:
+  runtime_data:
+
+networks:
+  default:
+    external:
+      name: scratchapi_scratch_network
+
+services:
+  app:
+    container_name: scratch-analysis-lib
+    hostname: scratch-analysis
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    image: scratch-analysis:latest
+    command: node -e "require('http').createServer((req, res) => { res.end('OK'); }).listen(8080, () => {console.log('Listening on 8080'); } );"
+    volumes:
+      - type: bind
+        source: ./
+        target: /var/app/current
+        consistency: cached
+        volume:
+          nocopy: true
+      - npm_data:/var/app/current/node_modules
+      - runtime_data:/runtime
+    ports:
+      - "9999:8080"

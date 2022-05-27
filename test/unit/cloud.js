@@ -18,33 +18,33 @@ const sb3Complex = fs.readFileSync(
 
 test('sb2', t => {
     analysis(sb2, (err, result) => {
-        t.true(typeof err === 'undefined' || err === null);
+        t.ok(typeof err === 'undefined' || err === null);
         t.type(result, 'object');
         t.type(result.cloud, 'object');
-        t.equals(result.cloud.count, 1);
-        t.deepEquals(result.cloud.id, ['☁ baz']);
+        t.equal(result.cloud.count, 1);
+        t.same(result.cloud.id, ['☁ baz']);
         t.end();
     });
 });
 
 test('sb3', t => {
     analysis(sb3, (err, result) => {
-        t.true(typeof err === 'undefined' || err === null);
+        t.ok(typeof err === 'undefined' || err === null);
         t.type(result, 'object');
         t.type(result.cloud, 'object');
-        t.equals(result.cloud.count, 1);
-        t.deepEquals(result.cloud.id, ['☁ baz']);
+        t.equal(result.cloud.count, 1);
+        t.same(result.cloud.id, ['☁ baz']);
         t.end();
     });
 });
 
 test('sb2 complex', t => {
     analysis(sb2Complex, (err, result) => {
-        t.true(typeof err === 'undefined' || err === null);
+        t.ok(typeof err === 'undefined' || err === null);
         t.type(result, 'object');
         t.type(result.cloud, 'object');
-        t.equals(result.cloud.count, 8);
-        t.deepEquals(result.cloud.id, [
+        t.equal(result.cloud.count, 8);
+        t.same(result.cloud.id, [
             '☁ Player_1',
             '☁ Player_2',
             '☁ Player_3',
@@ -60,11 +60,11 @@ test('sb2 complex', t => {
 
 test('sb3 complex', t => {
     analysis(sb3Complex, (err, result) => {
-        t.true(typeof err === 'undefined' || err === null);
+        t.ok(typeof err === 'undefined' || err === null);
         t.type(result, 'object');
         t.type(result.cloud, 'object');
-        t.equals(result.cloud.count, 8);
-        t.deepEquals(result.cloud.id, [
+        t.equal(result.cloud.count, 8);
+        t.same(result.cloud.id, [
             '☁ Player_1',
             '☁ Player_2',
             '☁ Player_3',

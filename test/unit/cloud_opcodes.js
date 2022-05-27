@@ -12,11 +12,11 @@ const sb3 = fs.readFileSync(
 
 test('sb2', t => {
     analysis(sb2, (err, result) => {
-        t.true(typeof err === 'undefined' || err === null);
+        t.ok(typeof err === 'undefined' || err === null);
         t.type(result, 'object');
         t.type(result.blocks, 'object');
         t.type(result.blocks.id, 'object');
-        t.deepEquals(result.blocks.id, [
+        t.same(result.blocks.id, [
             'whenGreenFlag',
             'doForever',
             'setVar:to:',
@@ -36,11 +36,11 @@ test('sb2', t => {
 
 test('sb3', t => {
     analysis(sb3, (err, result) => {
-        t.true(typeof err === 'undefined' || err === null);
+        t.ok(typeof err === 'undefined' || err === null);
         t.type(result, 'object');
         t.type(result.blocks, 'object');
         t.type(result.blocks.id, 'object');
-        t.deepEquals(result.blocks.id, [
+        t.same(result.blocks.id, [
             'event_whenflagclicked',
             'control_forever',
             'control_wait',

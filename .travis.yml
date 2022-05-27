@@ -1,15 +1,14 @@
 language: node_js
 node_js:
-  - 8
-  - 10
-  - node
+  - 16
+  - lts/*
 cache:
   directories:
   - node_modules
 jobs:
   include:
   - stage: release
-    node_js: 10
+    node_js: 16
     script: echo deploying...
     deploy:
     - provider: script

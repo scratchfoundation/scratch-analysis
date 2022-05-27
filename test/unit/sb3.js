@@ -288,7 +288,7 @@ test('extensions', t => {
     });
 });
 
-test('regression test IBE-198', t => {
+test('regression test IBE-198, a bad list does not break library', t => {
     analysis(badExtensions, (err, result) => {
         t.ok(typeof err === 'undefined' || err === null);
         t.type(result, 'object');

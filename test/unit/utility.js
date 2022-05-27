@@ -10,7 +10,7 @@ test('spec', t => {
 test('frequency', t => {
     const input = ['foo', 'foo', 'foo', 'bar', 'bar', 'baz'];
     const result = utility.frequency(input);
-    t.deepEqual(result, {
+    t.same(result, {
         foo: 3,
         bar: 2,
         baz: 1

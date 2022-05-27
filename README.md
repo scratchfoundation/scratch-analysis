@@ -1,6 +1,9 @@
 ## scratch-analysis
 #### Analysis tool for summarizing the structure, composition, and complexity of [Scratch](https://scratch.mit.edu) programs.
 
+[![Build Status](https://travis-ci.org/LLK/scratch-analysis.svg?branch=develop)](https://travis-ci.org/LLK/scratch-analysis)
+[![Greenkeeper badge](https://badges.greenkeeper.io/LLK/scratch-analysis.svg)](https://greenkeeper.io/)
+
 ## Getting Started
 ```bash
 npm install scratch-analysis
@@ -23,7 +26,8 @@ The `scratch-analysis` module will return an object containing high-level summar
 | `scripts`         | `count`                                                  |
 | `blocks`          | `count`, `unique`, `list`, `frequency`                   |
 | `sprites`         | `count`                                                  |
-| `variables`       | `count`                                                  |
+| `variables`       | `count`, `id`                                            |
+| `cloud`           | `count`, `id`                                            |
 | `lists`           | `count`                                                  |
 | `costumes`        | `count`, `list`, `hash`                                  |
 | `sounds`          | `count`, `list`, `hash`                                  |

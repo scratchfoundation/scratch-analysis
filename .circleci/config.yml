@@ -61,7 +61,7 @@ workflows:
 
   build-and-publish-package:
     when:
-      and:
+      or:
         - equal: [ develop, << pipeline.git.branch >> ]
         - equal: [ test, << pipeline.git.branch >> ]
     jobs:

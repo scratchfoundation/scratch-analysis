@@ -28,7 +28,7 @@ aliases:
       - checkout
       - run:
           name: Publish package
-          command: npx semantic-release 
+          command: npx semantic-release --branches test
       - slack/notify:
           channel: test-circleci
           event: fail

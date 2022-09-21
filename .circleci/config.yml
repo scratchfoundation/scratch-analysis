@@ -58,7 +58,6 @@ workflows:
         or:
           - equal: [ master, <<pipeline.git.branch>> ]
           - equal: [ develop, <<pipeline.git.branch>> ]
-          - equal: [ test, <<pipeline.git.branch>> ]
 
   build-and-publish-package:
     when:

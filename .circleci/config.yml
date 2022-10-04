@@ -55,13 +55,13 @@ workflows:
             - slack-notifications
     when:
       not:
-        or:
-          - equal: [ master, <<pipeline.git.branch>> ]
+        and:
+          - equal: [ tsm/circleci-updates, <<pipeline.git.branch>> ]
 
   build-and-publish-package:
     when:
-      or:
-        - equal: [ master, << pipeline.git.branch >> ]
+      and:
+        - equal: [ tsm/circleci-updates, << pipeline.git.branch >> ]
     jobs:
       - build-and-test:
           context: 

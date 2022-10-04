@@ -47,7 +47,7 @@ jobs:
     <<: *deploy
 
 workflows:
-  build-and-test-api:
+  build-and-test-analysis:
     jobs:
       - build-and-test:
           context: 
@@ -56,12 +56,12 @@ workflows:
     when:
       not:
         and:
-          - equal: [ tsm/circleci-updates, <<pipeline.git.branch>> ]
+          - equal: [ master, <<pipeline.git.branch>> ]
 
   build-and-publish-package:
     when:
       and:
-        - equal: [ tsm/circleci-updates, << pipeline.git.branch >> ]
+        - equal: [ master, << pipeline.git.branch >> ]
     jobs:
       - build-and-test:
           context: 

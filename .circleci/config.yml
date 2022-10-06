@@ -30,11 +30,11 @@ aliases:
           name: Publish package
           command: npx semantic-release 
       - slack/notify:
-          channel: test-circleci
+          channel: circleci-backend-deploys
           event: fail
           template: basic_fail_1
       - slack/notify:
-          channel: test-circleci
+          channel: circleci-backend-deploys
           event: pass
           template: success_tagged_deploy_1
 
@@ -47,7 +47,7 @@ jobs:
     <<: *deploy
 
 workflows:
-  build-and-test-api:
+  build-and-test-analysis:
     jobs:
       - build-and-test:
           context: 
@@ -55,16 +55,11 @@ workflows:
             - slack-notifications
     when:
       not:
-        or:
-          - equal: [ master, <<pipeline.git.branch>> ]
-          - equal: [ develop, <<pipeline.git.branch>> ]
-          - equal: [ test, <<pipeline.git.branch>> ]
+        equal: [ tsm/circleci-updates, <<pipeline.git.branch>> ]
 
   build-and-publish-package:
     when:
-      and:
-        - equal: [ develop, << pipeline.git.branch >> ]
-        - equal: [ test, << pipeline.git.branch >> ]
+      equal: [ tsm/circleci-updates, << pipeline.git.branch >> ]
     jobs:
       - build-and-test:
           context: 
@@ -74,3 +69,5 @@ workflows:
           context: 
             - scratch-analysis
             - slack-notifications
+          requires:
+            - build-and-test

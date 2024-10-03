@@ -68,6 +68,15 @@ test('default (object)', t => {
             'd27716e022fb5f747d7b09fe6eeeca06.svg'
         ]);
 
+        t.type(result.backdrops, 'object');
+        t.equal(result.backdrops.count, 1);
+        t.same(result.backdrops.id, [
+            'backdrop1'
+        ]);
+        t.same(result.backdrops.hash, [
+            'cd21514d0531fdffb22204e0ec5ed84a.svg'
+        ]);
+
         t.type(result.sprites, 'object');
         t.equal(result.sprites.count, 1);
 
@@ -132,6 +141,15 @@ test('default (binary)', t => {
             'b7853f557e4426412e64bb3da6531a99.svg',
             'e6ddc55a6ddd9cc9d84fe0b4c21e016f.svg',
             'd27716e022fb5f747d7b09fe6eeeca06.svg'
+        ]);
+
+        t.type(result.backdrops, 'object');
+        t.equal(result.backdrops.count, 1);
+        t.same(result.backdrops.id, [
+            'backdrop1'
+        ]);
+        t.same(result.backdrops.hash, [
+            'cd21514d0531fdffb22204e0ec5ed84a.svg'
         ]);
 
         t.type(result.sprites, 'object');
@@ -201,6 +219,15 @@ test('complex (binary)', t => {
             '7633d36de03d1df75808f581bbccc742.svg',
             'e6bcb4046c157f60c9f5c3bb5f299fce.svg',
             '64208764c777be25d34d813dc0b743c7.svg'
+        ]);
+
+        t.type(result.backdrops, 'object');
+        t.equal(result.backdrops.count, 1);
+        t.same(result.backdrops.id, [
+            'backdrop1'
+        ]);
+        t.same(result.backdrops.hash, [
+            '7633d36de03d1df75808f581bbccc742.svg'
         ]);
 
         t.type(result.sprites, 'object');
@@ -335,6 +362,15 @@ test('regression test IBE-198, a bad list does not break library', t => {
             'cd21514d0531fdffb22204e0ec5ed84a.svg',
             'b7853f557e4426412e64bb3da6531a99.svg',
             'e6ddc55a6ddd9cc9d84fe0b4c21e016f.svg'
+        ]);
+
+        t.type(result.backdrops, 'object');
+        t.equal(result.backdrops.count, 1);
+        t.same(result.backdrops.id, [
+            'backdrop1'
+        ]);
+        t.same(result.backdrops.hash, [
+            'cd21514d0531fdffb22204e0ec5ed84a.svg'
         ]);
 
         t.type(result.sprites, 'object');

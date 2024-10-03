@@ -54,16 +54,18 @@ test('default (object)', t => {
         ]);
 
         t.type(result.costumes, 'object');
-        t.equal(result.costumes.count, 3);
+        t.equal(result.costumes.count, 4);
         t.same(result.costumes.id, [
             'backdrop1',
             'costume1',
-            'costume2'
+            'costume2',
+            'costume_without_md5ext'
         ]);
         t.same(result.costumes.hash, [
             'cd21514d0531fdffb22204e0ec5ed84a.svg',
             'b7853f557e4426412e64bb3da6531a99.svg',
-            'e6ddc55a6ddd9cc9d84fe0b4c21e016f.svg'
+            'e6ddc55a6ddd9cc9d84fe0b4c21e016f.svg',
+            'd27716e022fb5f747d7b09fe6eeeca06.svg'
         ]);
 
         t.type(result.sprites, 'object');
@@ -118,16 +120,18 @@ test('default (binary)', t => {
         ]);
 
         t.type(result.costumes, 'object');
-        t.equal(result.costumes.count, 3);
+        t.equal(result.costumes.count, 4);
         t.same(result.costumes.id, [
             'backdrop1',
             'costume1',
-            'costume2'
+            'costume2',
+            'costume_without_md5ext'
         ]);
         t.same(result.costumes.hash, [
             'cd21514d0531fdffb22204e0ec5ed84a.svg',
             'b7853f557e4426412e64bb3da6531a99.svg',
-            'e6ddc55a6ddd9cc9d84fe0b4c21e016f.svg'
+            'e6ddc55a6ddd9cc9d84fe0b4c21e016f.svg',
+            'd27716e022fb5f747d7b09fe6eeeca06.svg'
         ]);
 
         t.type(result.sprites, 'object');

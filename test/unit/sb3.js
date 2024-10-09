@@ -377,12 +377,12 @@ test('correctly handling primitve reporter blocks: list and variable', t => {
         t.equal(result.blocks.count, 3);
         t.equal(result.blocks.unique, 3);
         t.same(result.blocks.id, [
-            'data_list',
+            'data_listcontents',
             'motion_changexby',
             'data_variable'
         ]);
         t.same(result.blocks.frequency, {
-            data_list: 1,
+            data_listcontents: 1,
             motion_changexby: 1,
             data_variable: 1
         });

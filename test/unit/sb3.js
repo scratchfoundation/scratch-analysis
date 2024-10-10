@@ -21,6 +21,10 @@ const badExtensions = fs.readFileSync(
     path.resolve(__dirname, '../fixtures/sb3/badExtensions.json')
 );
 
+const primitiveVariableAndListBlocks = fs.readFileSync(
+    path.resolve(__dirname, '../fixtures/sb3/primitiveVariableAndListBlocks.json')
+);
+
 test('default (object)', t => {
     analysis(defaultObject, (err, result) => {
         t.ok(typeof err === 'undefined' || err === null);
@@ -352,6 +356,40 @@ test('regression test IBE-198, a bad list does not break library', t => {
 
         t.type(result.meta, 'object');
         t.equal(result.meta.origin, 'test.scratch.mit.edu');
+        t.end();
+    });
+});
+
+test('correctly handling primitve reporter blocks: list and variable', t => {
+    analysis(primitiveVariableAndListBlocks, (err, result) => {
+        t.ok(typeof err === 'undefined' || err === null);
+        t.type(result, 'object');
+
+        t.type(result.variables, 'object');
+        t.equal(result.variables.count, 1);
+        t.same(result.variables.id, [
+            'my_variable'
+        ]);
+
+        t.type(result.lists, 'object');
+        t.equal(result.lists.count, 1);
+        t.same(result.lists.id, [
+            'my_list'
+        ]);
+
+        t.type(result.blocks, 'object');
+        t.equal(result.blocks.count, 3);
+        t.equal(result.blocks.unique, 3);
+        t.same(result.blocks.id, [
+            'data_listcontents',
+            'motion_changexby',
+            'data_variable'
+        ]);
+        t.same(result.blocks.frequency, {
+            data_listcontents: 1,
+            motion_changexby: 1,
+            data_variable: 1
+        });
         t.end();
     });
 });

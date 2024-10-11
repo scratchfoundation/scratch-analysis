@@ -69,6 +69,14 @@
           "dataFormat": "svg",
           "rotationCenterX": 46,
           "rotationCenterY": 53
+        },
+        {
+          "assetId": "d27716e022fb5f747d7b09fe6eeeca06",
+          "name": "costume_without_md5ext",
+          "bitmapResolution": 1,
+          "dataFormat": "svg",
+          "rotationCenterX": 71,
+          "rotationCenterY": 107
         }
       ],
       "sounds": [

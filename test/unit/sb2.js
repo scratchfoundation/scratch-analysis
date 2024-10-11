@@ -56,6 +56,15 @@ test('default (object)', t => {
             '3696356a03a8d938318876a593572843.svg'
         ]);
 
+        t.type(result.backdrops, 'object');
+        t.equal(result.backdrops.count, 1);
+        t.same(result.backdrops.id, [
+            'backdrop1'
+        ]);
+        t.same(result.backdrops.hash, [
+            '739b5e2a2435f6e1ec2993791b423146.png'
+        ]);
+
         t.type(result.sprites, 'object');
         t.equal(result.sprites.count, 1);
 
@@ -117,6 +126,15 @@ test('default (binary)', t => {
             '739b5e2a2435f6e1ec2993791b423146.png',
             'f9a1c175dbe2e5dee472858dd30d16bb.svg',
             '6e8bd9ae68fdb02b7e1e3df656a75635.svg'
+        ]);
+
+        t.type(result.backdrops, 'object');
+        t.equal(result.backdrops.count, 1);
+        t.same(result.backdrops.id, [
+            'backdrop1'
+        ]);
+        t.same(result.backdrops.hash, [
+            '739b5e2a2435f6e1ec2993791b423146.png'
         ]);
 
         t.type(result.sprites, 'object');
@@ -183,6 +201,15 @@ test('complex (binary)', t => {
             '5b465b3b07d39019109d8dc6d6ee6593.svg',
             'f9a1c175dbe2e5dee472858dd30d16bb.svg',
             '6e8bd9ae68fdb02b7e1e3df656a75635.svg'
+        ]);
+
+        t.type(result.backdrops, 'object');
+        t.equal(result.backdrops.count, 1);
+        t.same(result.backdrops.id, [
+            'backdrop1'
+        ]);
+        t.same(result.backdrops.hash, [
+            '5b465b3b07d39019109d8dc6d6ee6593.svg'
         ]);
 
         t.type(result.sprites, 'object');

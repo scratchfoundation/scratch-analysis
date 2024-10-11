@@ -21,6 +21,10 @@ const badExtensions = fs.readFileSync(
     path.resolve(__dirname, '../fixtures/sb3/badExtensions.json')
 );
 
+const primitiveVariableAndListBlocks = fs.readFileSync(
+    path.resolve(__dirname, '../fixtures/sb3/primitiveVariableAndListBlocks.json')
+);
+
 test('default (object)', t => {
     analysis(defaultObject, (err, result) => {
         t.ok(typeof err === 'undefined' || err === null);
@@ -54,16 +58,27 @@ test('default (object)', t => {
         ]);
 
         t.type(result.costumes, 'object');
-        t.equal(result.costumes.count, 3);
+        t.equal(result.costumes.count, 4);
         t.same(result.costumes.id, [
             'backdrop1',
             'costume1',
-            'costume2'
+            'costume2',
+            'costume_without_md5ext'
         ]);
         t.same(result.costumes.hash, [
             'cd21514d0531fdffb22204e0ec5ed84a.svg',
             'b7853f557e4426412e64bb3da6531a99.svg',
-            'e6ddc55a6ddd9cc9d84fe0b4c21e016f.svg'
+            'e6ddc55a6ddd9cc9d84fe0b4c21e016f.svg',
+            'd27716e022fb5f747d7b09fe6eeeca06.svg'
+        ]);
+
+        t.type(result.backdrops, 'object');
+        t.equal(result.backdrops.count, 1);
+        t.same(result.backdrops.id, [
+            'backdrop1'
+        ]);
+        t.same(result.backdrops.hash, [
+            'cd21514d0531fdffb22204e0ec5ed84a.svg'
         ]);
 
         t.type(result.sprites, 'object');
@@ -118,16 +133,27 @@ test('default (binary)', t => {
         ]);
 
         t.type(result.costumes, 'object');
-        t.equal(result.costumes.count, 3);
+        t.equal(result.costumes.count, 4);
         t.same(result.costumes.id, [
             'backdrop1',
             'costume1',
-            'costume2'
+            'costume2',
+            'costume_without_md5ext'
         ]);
         t.same(result.costumes.hash, [
             'cd21514d0531fdffb22204e0ec5ed84a.svg',
             'b7853f557e4426412e64bb3da6531a99.svg',
-            'e6ddc55a6ddd9cc9d84fe0b4c21e016f.svg'
+            'e6ddc55a6ddd9cc9d84fe0b4c21e016f.svg',
+            'd27716e022fb5f747d7b09fe6eeeca06.svg'
+        ]);
+
+        t.type(result.backdrops, 'object');
+        t.equal(result.backdrops.count, 1);
+        t.same(result.backdrops.id, [
+            'backdrop1'
+        ]);
+        t.same(result.backdrops.hash, [
+            'cd21514d0531fdffb22204e0ec5ed84a.svg'
         ]);
 
         t.type(result.sprites, 'object');
@@ -197,6 +223,15 @@ test('complex (binary)', t => {
             '7633d36de03d1df75808f581bbccc742.svg',
             'e6bcb4046c157f60c9f5c3bb5f299fce.svg',
             '64208764c777be25d34d813dc0b743c7.svg'
+        ]);
+
+        t.type(result.backdrops, 'object');
+        t.equal(result.backdrops.count, 1);
+        t.same(result.backdrops.id, [
+            'backdrop1'
+        ]);
+        t.same(result.backdrops.hash, [
+            '7633d36de03d1df75808f581bbccc742.svg'
         ]);
 
         t.type(result.sprites, 'object');
@@ -333,6 +368,15 @@ test('regression test IBE-198, a bad list does not break library', t => {
             'e6ddc55a6ddd9cc9d84fe0b4c21e016f.svg'
         ]);
 
+        t.type(result.backdrops, 'object');
+        t.equal(result.backdrops.count, 1);
+        t.same(result.backdrops.id, [
+            'backdrop1'
+        ]);
+        t.same(result.backdrops.hash, [
+            'cd21514d0531fdffb22204e0ec5ed84a.svg'
+        ]);
+
         t.type(result.sprites, 'object');
         t.equal(result.sprites.count, 1);
 
@@ -348,6 +392,40 @@ test('regression test IBE-198, a bad list does not break library', t => {
 
         t.type(result.meta, 'object');
         t.equal(result.meta.origin, 'test.scratch.mit.edu');
+        t.end();
+    });
+});
+
+test('correctly handling primitve reporter blocks: list and variable', t => {
+    analysis(primitiveVariableAndListBlocks, (err, result) => {
+        t.ok(typeof err === 'undefined' || err === null);
+        t.type(result, 'object');
+
+        t.type(result.variables, 'object');
+        t.equal(result.variables.count, 1);
+        t.same(result.variables.id, [
+            'my_variable'
+        ]);
+
+        t.type(result.lists, 'object');
+        t.equal(result.lists.count, 1);
+        t.same(result.lists.id, [
+            'my_list'
+        ]);
+
+        t.type(result.blocks, 'object');
+        t.equal(result.blocks.count, 3);
+        t.equal(result.blocks.unique, 3);
+        t.same(result.blocks.id, [
+            'data_listcontents',
+            'motion_changexby',
+            'data_variable'
+        ]);
+        t.same(result.blocks.frequency, {
+            data_listcontents: 1,
+            motion_changexby: 1,
+            data_variable: 1
+        });
         t.end();
     });
 });

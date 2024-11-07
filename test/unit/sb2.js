@@ -2,6 +2,9 @@ const fs = require('fs');
 const path = require('path');
 const test = require('tap').test;
 const analysis = require('../../lib/index');
+// using the sb2 directly to bypass scratch-parser and excersise
+// logic targeting broken project files
+const sb2 = require('../../lib/sb2');
 
 const defaultObject = fs.readFileSync(
     path.resolve(__dirname, '../fixtures/sb2/default.json')
@@ -11,6 +14,10 @@ const defaultBinary = fs.readFileSync(
 );
 const complexBinary = fs.readFileSync(
     path.resolve(__dirname, '../fixtures/sb2/complex.sb2')
+);
+
+const invalidCostumes = fs.readFileSync(
+    path.resolve(__dirname, '../fixtures/sb2/invalid-costumes.json')
 );
 
 test('default (object)', t => {
@@ -54,6 +61,15 @@ test('default (object)', t => {
             '739b5e2a2435f6e1ec2993791b423146.png',
             '09dc888b0b7df19f70d81588ae73420e.svg',
             '3696356a03a8d938318876a593572843.svg'
+        ]);
+
+        t.type(result.backdrops, 'object');
+        t.equal(result.backdrops.count, 1);
+        t.same(result.backdrops.id, [
+            'backdrop1'
+        ]);
+        t.same(result.backdrops.hash, [
+            '739b5e2a2435f6e1ec2993791b423146.png'
         ]);
 
         t.type(result.sprites, 'object');
@@ -117,6 +133,15 @@ test('default (binary)', t => {
             '739b5e2a2435f6e1ec2993791b423146.png',
             'f9a1c175dbe2e5dee472858dd30d16bb.svg',
             '6e8bd9ae68fdb02b7e1e3df656a75635.svg'
+        ]);
+
+        t.type(result.backdrops, 'object');
+        t.equal(result.backdrops.count, 1);
+        t.same(result.backdrops.id, [
+            'backdrop1'
+        ]);
+        t.same(result.backdrops.hash, [
+            '739b5e2a2435f6e1ec2993791b423146.png'
         ]);
 
         t.type(result.sprites, 'object');
@@ -183,6 +208,15 @@ test('complex (binary)', t => {
             '5b465b3b07d39019109d8dc6d6ee6593.svg',
             'f9a1c175dbe2e5dee472858dd30d16bb.svg',
             '6e8bd9ae68fdb02b7e1e3df656a75635.svg'
+        ]);
+
+        t.type(result.backdrops, 'object');
+        t.equal(result.backdrops.count, 1);
+        t.same(result.backdrops.id, [
+            'backdrop1'
+        ]);
+        t.same(result.backdrops.hash, [
+            '5b465b3b07d39019109d8dc6d6ee6593.svg'
         ]);
 
         t.type(result.sprites, 'object');
@@ -253,6 +287,21 @@ test('complex (binary)', t => {
         t.same(result.extensions.id, [
             'LEGO WeDo 2.0'
         ]);
+
+        t.end();
+    });
+});
+
+test('stage with invalid costumes', t => {
+    const project = JSON.parse(invalidCostumes);
+
+    sb2(project, (err, result) => {
+        t.ok(typeof err === 'undefined' || err === null);
+        t.type(result, 'object');
+        t.type(result.backdrops, 'object');
+        t.equal(result.backdrops.count, 0);
+        t.same(result.backdrops.id, []);
+        t.same(result.backdrops.hash, []);
 
         t.end();
     });

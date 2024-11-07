@@ -4,12 +4,17 @@
       "isStage": true,
       "name": "Stage",
       "variables": {
-        "`jEk@4|i[#Fk?(8x)AV.-my variable": [
-          "my variable",
-          0
+        "T1[{JjfXy_y{K@EQkA?1": [
+          "my_variable",
+          "0"
         ]
       },
-      "lists": {},
+      "lists": {
+        "HewanSoehucCjFovU@^H": [
+          "my_list",
+          []
+        ]
+      },
       "broadcasts": {},
       "blocks": {},
       "comments": {},
@@ -48,7 +53,44 @@
       "variables": {},
       "lists": {},
       "broadcasts": {},
-      "blocks": {},
+      "blocks": {
+        "wS7V(|TE2G9v@AX8BYK~": [
+          13,
+          "my_list",
+          "HewanSoehucCjFovU@^H",
+          713,
+          604
+        ],
+        "|#CTw):^,.,NSY)[Tnb?": {
+          "opcode": "motion_changexby",
+          "next": null,
+          "parent": "^m#)|6_G10cLNp(ZlZv(",
+          "inputs": {
+            "DX": [
+              3,
+              [
+                12,
+                "my_variable",
+                "T1[{JjfXy_y{K@EQkA?1"
+              ],
+              [
+                4,
+                "10"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "2_SCXE]6;tCt$ZcG|GQ(": [
+          12,
+          "my_variable",
+          "T1[{JjfXy_y{K@EQkA?1",
+          322,
+          449
+        ]
+      },
       "comments": {},
       "currentCostume": 0,
       "costumes": [
@@ -60,23 +102,6 @@
           "dataFormat": "svg",
           "rotationCenterX": 48,
           "rotationCenterY": 50
-        },
-        {
-          "assetId": "e6ddc55a6ddd9cc9d84fe0b4c21e016f",
-          "name": "costume2",
-          "bitmapResolution": 1,
-          "md5ext": "e6ddc55a6ddd9cc9d84fe0b4c21e016f.svg",
-          "dataFormat": "svg",
-          "rotationCenterX": 46,
-          "rotationCenterY": 53
-        },
-        {
-          "assetId": "d27716e022fb5f747d7b09fe6eeeca06",
-          "name": "costume_without_md5ext",
-          "bitmapResolution": 1,
-          "dataFormat": "svg",
-          "rotationCenterX": 71,
-          "rotationCenterY": 107
         }
       ],
       "sounds": [
@@ -102,7 +127,6 @@
     }
   ],
   "monitors": [],
-  "extensions": [],
   "meta": {
     "semver": "3.0.0",
     "vm": "0.2.0-prerelease.20181217191056",

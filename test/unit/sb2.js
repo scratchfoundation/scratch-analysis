@@ -2,6 +2,9 @@ const fs = require('fs');
 const path = require('path');
 const test = require('tap').test;
 const analysis = require('../../lib/index');
+// using the sb2 directly to bypass scratch-parser and excersise
+// logic targeting broken project files
+const sb2 = require('../../lib/sb2');
 
 const defaultObject = fs.readFileSync(
     path.resolve(__dirname, '../fixtures/sb2/default.json')
@@ -11,6 +14,10 @@ const defaultBinary = fs.readFileSync(
 );
 const complexBinary = fs.readFileSync(
     path.resolve(__dirname, '../fixtures/sb2/complex.sb2')
+);
+
+const invalidCostumes = fs.readFileSync(
+    path.resolve(__dirname, '../fixtures/sb2/invalid-costumes.json')
 );
 
 test('default (object)', t => {
@@ -280,6 +287,21 @@ test('complex (binary)', t => {
         t.same(result.extensions.id, [
             'LEGO WeDo 2.0'
         ]);
+
+        t.end();
+    });
+});
+
+test('stage with invalid costumes', t => {
+    const project = JSON.parse(invalidCostumes);
+
+    sb2(project, (err, result) => {
+        t.ok(typeof err === 'undefined' || err === null);
+        t.type(result, 'object');
+        t.type(result.backdrops, 'object');
+        t.equal(result.backdrops.count, 0);
+        t.same(result.backdrops.id, []);
+        t.same(result.backdrops.hash, []);
 
         t.end();
     });

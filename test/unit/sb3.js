@@ -96,6 +96,13 @@ test('default (object)', t => {
 
         t.type(result.meta, 'object');
         t.equal(result.meta.origin, 'test.scratch.mit.edu');
+
+        t.type(result.projectVersion, 'number');
+        t.equal(result.projectVersion, 3);
+
+        t.type(result.isZip, 'boolean');
+        t.equal(result.isZip, false);
+
         t.end();
     });
 });
@@ -171,6 +178,12 @@ test('default (binary)', t => {
 
         t.type(result.meta, 'object');
         t.same({}, result.meta);
+
+        t.type(result.projectVersion, 'number');
+        t.equal(result.projectVersion, 3);
+
+        t.type(result.isZip, 'boolean');
+        t.equal(result.isZip, true);
 
         t.end();
     });
@@ -303,6 +316,12 @@ test('complex (binary)', t => {
             'wedo2'
         ]);
 
+        t.type(result.projectVersion, 'number');
+        t.equal(result.projectVersion, 3);
+
+        t.type(result.isZip, 'boolean');
+        t.equal(result.isZip, true);
+
         t.end();
     });
 });
@@ -392,6 +411,13 @@ test('regression test IBE-198, a bad list does not break library', t => {
 
         t.type(result.meta, 'object');
         t.equal(result.meta.origin, 'test.scratch.mit.edu');
+
+        t.type(result.projectVersion, 'number');
+        t.equal(result.projectVersion, 3);
+
+        t.type(result.isZip, 'boolean');
+        t.equal(result.isZip, false);
+
         t.end();
     });
 });

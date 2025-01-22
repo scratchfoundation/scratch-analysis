@@ -100,8 +100,8 @@ test('default (object)', t => {
         t.type(result.projectVersion, 'number');
         t.equal(result.projectVersion, 3);
 
-        t.type(result.isZip, 'boolean');
-        t.equal(result.isZip, false);
+        t.type(result.isBundle, 'boolean');
+        t.equal(result.isBundle, false);
 
         t.end();
     });
@@ -182,8 +182,8 @@ test('default (binary)', t => {
         t.type(result.projectVersion, 'number');
         t.equal(result.projectVersion, 3);
 
-        t.type(result.isZip, 'boolean');
-        t.equal(result.isZip, true);
+        t.type(result.isBundle, 'boolean');
+        t.equal(result.isBundle, true);
 
         t.end();
     });
@@ -319,8 +319,8 @@ test('complex (binary)', t => {
         t.type(result.projectVersion, 'number');
         t.equal(result.projectVersion, 3);
 
-        t.type(result.isZip, 'boolean');
-        t.equal(result.isZip, true);
+        t.type(result.isBundle, 'boolean');
+        t.equal(result.isBundle, true);
 
         t.end();
     });
@@ -415,8 +415,8 @@ test('regression test IBE-198, a bad list does not break library', t => {
         t.type(result.projectVersion, 'number');
         t.equal(result.projectVersion, 3);
 
-        t.type(result.isZip, 'boolean');
-        t.equal(result.isZip, false);
+        t.type(result.isBundle, 'boolean');
+        t.equal(result.isBundle, false);
 
         t.end();
     });

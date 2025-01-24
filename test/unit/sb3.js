@@ -95,7 +95,13 @@ test('default (object)', t => {
         t.same(result.extensions.id, []);
 
         t.type(result.meta, 'object');
-        t.equal(result.meta.origin, 'test.scratch.mit.edu');
+        t.same(result.meta, {
+            semver: '3.0.0',
+            vm: '0.2.0-prerelease.20181217191056',
+            agent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_1) AppleWebKit/537.36 (KHTML, like Gecko) ' +
+                'Chrome/70.0.3538.110 Safari/537.36',
+            origin: 'test.scratch.mit.edu'
+        });
 
         t.type(result.projectVersion, 'number');
         t.equal(result.projectVersion, 3);
@@ -177,7 +183,12 @@ test('default (binary)', t => {
         t.same(result.extensions.id, []);
 
         t.type(result.meta, 'object');
-        t.same({}, result.meta);
+        t.same(result.meta, {
+            semver: '3.0.0',
+            vm: '0.2.0-prerelease.20181217191056',
+            agent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_1) AppleWebKit/537.36 (KHTML, like Gecko) ' +
+                'Chrome/70.0.3538.110 Safari/537.36'
+        });
 
         t.type(result.projectVersion, 'number');
         t.equal(result.projectVersion, 3);
@@ -410,7 +421,13 @@ test('regression test IBE-198, a bad list does not break library', t => {
         t.same(result.extensions.id, []);
 
         t.type(result.meta, 'object');
-        t.equal(result.meta.origin, 'test.scratch.mit.edu');
+        t.same(result.meta, {
+            semver: '3.0.0',
+            vm: '0.2.0-prerelease.20181217191056',
+            agent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_1) AppleWebKit/537.36 (KHTML, like Gecko) ' +
+                'Chrome/70.0.3538.110 Safari/537.36',
+            origin: 'test.scratch.mit.edu'
+        });
 
         t.type(result.projectVersion, 'number');
         t.equal(result.projectVersion, 3);

@@ -88,6 +88,12 @@ test('default (object)', t => {
         t.type(result.meta, 'object');
         t.same(result.meta, {});
 
+        t.type(result.projectVersion, 'number');
+        t.equal(result.projectVersion, 2);
+
+        t.type(result.isBundle, 'boolean');
+        t.equal(result.isBundle, false);
+
         t.end();
     });
 });
@@ -156,6 +162,12 @@ test('default (binary)', t => {
         t.type(result.extensions, 'object');
         t.equal(result.extensions.count, 0);
         t.same(result.extensions.id, []);
+
+        t.type(result.projectVersion, 'number');
+        t.equal(result.projectVersion, 2);
+
+        t.type(result.isBundle, 'boolean');
+        t.equal(result.isBundle, true);
 
         t.end();
     });
@@ -287,6 +299,12 @@ test('complex (binary)', t => {
         t.same(result.extensions.id, [
             'LEGO WeDo 2.0'
         ]);
+
+        t.type(result.projectVersion, 'number');
+        t.equal(result.projectVersion, 2);
+
+        t.type(result.isBundle, 'boolean');
+        t.equal(result.isBundle, true);
 
         t.end();
     });

@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.3.0](https://github.com/scratchfoundation/scratch-analysis/compare/v2.2.1...v2.3.0) (2025-01-28)
+
+
+### Features
+
+* fix version number ([9715b00](https://github.com/scratchfoundation/scratch-analysis/commit/9715b001ed52dc9651377417e3439f6bccc82700))
+
 ## [2.2.1](https://github.com/scratchfoundation/scratch-analysis/compare/v2.2.0...v2.2.1) (2024-11-07)
 
 

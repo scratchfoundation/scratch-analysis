@@ -2,6 +2,9 @@ const fs = require('fs');
 const path = require('path');
 const test = require('tap').test;
 const analysis = require('../../lib/index');
+// using the sb1 directly to bypass scratch-parser and excersise
+// logic targeting broken project files
+const {SB1Analyzer} = require('../../lib/sb1');
 
 const allBlocksBinary = fs.readFileSync(
     path.resolve(__dirname, '../fixtures/sb1/AllBlocks-Scratch1.4.sb')
@@ -107,6 +110,21 @@ test('malformed project', t => {
         t.ok(err);
         t.type(err, 'object');
         t.equal(err.message, 'Non-ascii character in FixedAsciiString');
+        t.type(result, 'undefined');
+        t.end();
+    });
+});
+
+test('syntactically valid SB1 project that does not pass schema validation after conversion', t => {
+    const mockValidate = (_isSprite, _project, callback) => {
+        callback(new Error('Project JSON is invalid'));
+    };
+    const sb1 = new SB1Analyzer(mockValidate);
+
+    sb1.analyze(allBlocksBinary, (err, result) => {
+        t.ok(err);
+        t.type(err, 'object');
+        t.equal(err.message, 'Project JSON is invalid');
         t.type(result, 'undefined');
         t.end();
     });

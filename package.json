@@ -20,6 +20,8 @@
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.5.4",
+    "@commitlint/cli": "^19.7.1",
+    "@commitlint/config-conventional": "^19.7.1",
     "eslint": "^8.16.0",
     "eslint-config-scratch": "^7.0.0",
     "scratch-semantic-release-config": "1.0.8",

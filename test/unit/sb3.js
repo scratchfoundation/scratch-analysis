@@ -25,6 +25,10 @@ const primitiveVariableAndListBlocks = fs.readFileSync(
     path.resolve(__dirname, '../fixtures/sb3/primitiveVariableAndListBlocks.json')
 );
 
+const missingVariableField = fs.readFileSync(
+    path.resolve(__dirname, '../fixtures/sb3/missingVariableField.json')
+);
+
 test('default (object)', t => {
     analysis(defaultObject, (err, result) => {
         t.ok(typeof err === 'undefined' || err === null);
@@ -469,6 +473,15 @@ test('correctly handling primitve reporter blocks: list and variable', t => {
             motion_changexby: 1,
             data_variable: 1
         });
+        t.end();
+    });
+});
+
+test('missing VARIABLE field in a block does not break the library', t => {
+    analysis(missingVariableField, (err, result) => {
+        t.ok(typeof err === 'undefined' || err === null);
+        t.type(result, 'object');
+
         t.end();
     });
 });

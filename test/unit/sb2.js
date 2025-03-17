@@ -20,6 +20,10 @@ const invalidCostumes = fs.readFileSync(
     path.resolve(__dirname, '../fixtures/sb2/invalid-costumes.json')
 );
 
+const missingInfo = fs.readFileSync(
+    path.resolve(__dirname, '../fixtures/sb2/infoMissing.json')
+);
+
 test('default (object)', t => {
     analysis(defaultObject, (err, result) => {
         t.ok(typeof err === 'undefined' || err === null);
@@ -321,6 +325,14 @@ test('stage with invalid costumes', t => {
         t.same(result.backdrops.id, []);
         t.same(result.backdrops.hash, []);
 
+        t.end();
+    });
+});
+
+test('works with a project where the "info" field is missing', t => {
+    analysis(missingInfo, (err, result) => {
+        t.ok(typeof err === 'undefined' || err === null);
+        t.type(result, 'object');
         t.end();
     });
 });

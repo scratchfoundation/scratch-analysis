@@ -29,6 +29,10 @@ const missingVariableField = fs.readFileSync(
     path.resolve(__dirname, '../fixtures/sb3/missingVariableField.json')
 );
 
+const extensionsObject = fs.readFileSync(
+    path.resolve(__dirname, '../fixtures/sb3/extensionsObject.json')
+);
+
 test('default (object)', t => {
     analysis(defaultObject, (err, result) => {
         t.ok(typeof err === 'undefined' || err === null);
@@ -482,6 +486,18 @@ test('missing VARIABLE field in a block does not break the library', t => {
         t.ok(typeof err === 'undefined' || err === null);
         t.type(result, 'object');
 
+        t.end();
+    });
+});
+
+test('works with a project where "extensions" is an object', t => {
+    analysis(extensionsObject, (err, result) => {
+        t.ok(typeof err === 'undefined' || err === null);
+        t.type(result, 'object');
+
+        t.type(result.extensions, 'object');
+        t.equal(result.extensions.count, 0);
+        t.same(result.extensions.id, []);
         t.end();
     });
 });

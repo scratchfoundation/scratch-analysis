@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.4.2](https://github.com/scratchfoundation/scratch-analysis/compare/v2.4.1...v2.4.2) (2026-06-16)
+
+
+### Bug Fixes
+
+* update scratch-parser ([8f26d39](https://github.com/scratchfoundation/scratch-analysis/commit/8f26d399d9c65c6c7b6501c36c2d1dc3debb77c3))
+
 ## [2.4.1](https://github.com/scratchfoundation/scratch-analysis/compare/v2.4.0...v2.4.1) (2025-03-18)
 
 
